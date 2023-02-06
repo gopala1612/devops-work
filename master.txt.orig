@@ -1,0 +1,9 @@
+this has beem created by file
+second lin
+third line
+test commenet
+<<<<<<< HEAD
+new comment 2
+=======
+new comment 1
+>>>>>>> featureA
