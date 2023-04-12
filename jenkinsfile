@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    tools {
+        maven "M3"
+    }
+
+    stages {
+        stage('prepare') {
+            steps {
+                
+                git branch: 'main', url: 'https://github.com/quick-aib/debts.git'
+                sh "mvn -s settings.xml -Dmaven.test.failur.ignore=true clean install"
+            }
+         
+            post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml
+                    archiveArtifacts 'target/*.jar'
+                 }
+             }
+         }
+      stage('Build')
+         steps (
+             input('Do you want to proceed?')
+             echo "proceeding to deploy"
+             git branch: 'mster' , url:
+             sh "docker stack -c deploy -c stack-dc.yml mystack"
+          }
+      }
+    }
+  }
