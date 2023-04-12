@@ -1,0 +1,14 @@
+pipeline {
+    agent { label 'maven-label' }
+    stages {
+        stage('Build') {
+            steps {
+
+                git branch: 'main', url: 'https://github.com/quick-aib/debts.git'
+                sh "ansible-playbook -i inventory site.yml"
+                
+            }
+        }
+        
+    }
+}
