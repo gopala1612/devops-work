@@ -13,12 +13,12 @@
         path: /var/www/tutorial
         state: directory
         mode: '0755'
-    - name: copy index file
+    - name: copy index file 
       copy:
         src: index.html
         dest: /var/www/tutorial
       notify: restart service
-    - name: copy tutorial file
+    - name: copy tutorial file 
       template:
         src: tutorial.j2
         dest: /etc/nginx/sites-enabled/tutorial
