@@ -9,7 +9,7 @@ pipeline {
         stage('prepare') {
             steps {
                 
-                git branch: 'main', url: 'https://github.com/quick-aib/debts.git'
+                git branch: 'main', url: 'https://github.com/gopala1612/devops-lab.git'
                 sh "mvn -s settings.xml -Dmaven.test.failur.ignore=true clean install"
             }
          
@@ -24,7 +24,7 @@ pipeline {
          steps (
              input('Do you want to proceed?')
              echo "proceeding to deploy"
-             git branch: 'mster' , url:
+             git branch: 'mster' , url: 'https://github.com/gopala1612/devops-lab.git'
              sh "docker stack -c deploy -c stack-dc.yml mystack"
           }
       }
